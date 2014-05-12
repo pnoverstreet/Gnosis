@@ -1,0 +1,14 @@
+Create Table Gnosis_contacts
+(
+  contact_id         number(5) NOT NULL,
+  contact_name_last  varchar2(64) NOT NULL,
+  contact_name_first varchar2(32) NOT NULL,
+  contact_email      varchar2(64),
+  contact_phone      varchar2(20),
+  date_created       date,
+  date_last_modified date,
+
+  CONSTRAINT pk_gnosis_contacts PRIMARY KEY (contact_id)
+);
+
+Create Index idx_gnosis_contact_name On Gnosis_contacts(contact_name_last, ', ', contact_name_first);

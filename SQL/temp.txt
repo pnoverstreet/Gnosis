@@ -1,0 +1,35 @@
+SELECT Issues.issue_id, Issues.issue_desc, Issues.issue_type_id, Issues.system_id, Issues.subsystem_id, Issues.issue_creation_date, Issues.issue_contact, Issues.issue_solved, IssueTypes.issue_type_desc, Solutions.solution_desc, SubSystems.subsystem_desc, Systems.system_desc
+FROM Issues, Systems, SubSystems, Solutions, IssueTypes
+WHERE Issues.issue_id=[:IssueNumber] And Systems.system_id=Issues.system_id And (SubSystems.system_id=Issues.system_id And SubSystems.subsystem_id=Issues.subsystem_id) And Solutions.issue_id=Issues.issue_id And IssueTypes.issue_type_id=Issues.issue_type_id
+ORDER BY Issues.issue_desc;
+
+
+
+
+
+
+
+SELECT
+  Issues.issue_id, 
+  Issues.issue_desc, 
+  Issues.issue_type_id, 
+  Issues.system_id, 
+  Issues.subsystem_id, 
+  Issues.issue_creation_date, 
+  Issues.issue_contact, 
+  Issues.issue_solved, 
+  IssueTypes.issue_type_desc,
+  Systems.system_desc,
+  SubSystems.subsystem_desc
+FROM
+  Issues RIGHT JOIN(IssueTypes ON IssueTypes.issue_type_id=Issues.issue_id)
+  Systems RIGHT JOIN(SubSystems ON 
+WHERE Issues.issue_id=[:IssueNumber]
+AND IssueTypes.issue_type_id = Issues.issue_type_id
+AND Systems.system_id=Issues.system_id
+AND (SubSystems.system_id=Issues.system_id AND SubSystems.subsystem_id=Issues.subsystem_id)
+
+, IssueTypes.issue_type_desc, Solutions.solution_desc, SubSystems.subsystem_desc, Systems.system_desc
+FROM Issues, Systems, SubSystems, Solutions, IssueTypes
+WHERE Issues.issue_id=[:IssueNumber] And Systems.system_id=Issues.system_id And (SubSystems.system_id=Issues.system_id And SubSystems.subsystem_id=Issues.subsystem_id) And Solutions.issue_id=Issues.issue_id And IssueTypes.issue_type_id=Issues.issue_type_id
+ORDER BY Issues.issue_desc;

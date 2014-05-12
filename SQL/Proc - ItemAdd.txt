@@ -1,0 +1,32 @@
+Create Or Replace Procedure ItemAdd
+(
+  pi_iItemID     IN NUMBER,
+  pi_sItemDesc   IN VARCHAR2,
+  pi_iItemTypeID IN NUMBER,
+  pi_sItemInfo   IN VARCHAR2,
+  pi_iSystemID   IN NUMBER
+)
+As
+	v_dCreationDate	DATE;
+Begin
+	Select sysdate Into v_dCreationDate From Dual;
+	Insert Into items
+	(
+		ITEM_ID,
+		ITEM_DESC,
+ 		ITEM_CREATION_DATE,
+ 		ITEM_TYPE_ID,
+ 		ITEM_INFO,
+ 		SYSTEM_ID
+	)
+	Values
+	(
+		pi_iItemID,
+		pi_sItemDesc,
+		v_dCreationDate,
+		pi_iItemTypeID,
+		pi_sItemInfo,
+		pi_iSystemID
+	);
+End;
+/

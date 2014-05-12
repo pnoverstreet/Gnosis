@@ -1,0 +1,21 @@
+-- Prerequisites:
+--	* Table systems must exist
+--	* Table issue_types must exist
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+Create Table Gnosis_issues
+(
+	issue_id						number(5) NOT NULL,
+	issue_desc					varchar2(512) NOT NULL,
+	issue_solved				char(1),
+	date_created				date,
+	date_last_modified	date,
+	issue_type_id				number(5),
+	system_id						number(5),
+	subsystem_id				number(5),
+	contact_id					number(5),
+	CONSTRAINT pk_gnosis_issues PRIMARY KEY (issue_id)
+);
+
+CREATE INDEX idx_gnosis_issues_desc ON Gnosis_Issues (issue_desc);
+Alter Table issues Add Constraint fk_issues_issuetypes FOREIGN KEY (issue_type_id) REFERENCES issue_types(issue_type_id);
+Alter Table issues Add Constraint fk_issues_systems FOREIGN KEY (system_id) REFERENCES systems(system_id);

@@ -1,0 +1,11 @@
+Create Table Gnosis_issue_types
+(
+  issue_type_id      number(5) NOT NULL,
+  issue_type_desc    varchar2(64),
+  date_created       date,
+  date_last_modified date,
+  
+  Constraint pk_gnosis_issue_types PRIMARY KEY (issue_type_id)
+);
+
+Create Index idx_gnosis_issue_types On Gnosis_issue_types(issue_type_desc);

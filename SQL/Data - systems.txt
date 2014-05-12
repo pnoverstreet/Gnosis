@@ -1,0 +1,9 @@
+Begin
+  insert into systems values (1, 'Factory Link');
+  insert into systems values (2, 'Tote Link (Server)');
+  insert into systems values (3, 'Tote Link (Client)');
+  insert into systems values (4, 'Tote Link (Interface)');
+  insert into systems values (5, 'Irregs');
+  insert into systems values (6, 'SEA Deskill');
+End;
+/

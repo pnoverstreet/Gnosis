@@ -1,0 +1,13 @@
+Create Table Gnosis_Issue_Solutions
+(
+  solution_id					number(5) NOT NULL,
+  solution_seq				number(2) NOT NULL,
+  solution_desc				varchar2(512) NOT NULL,
+  issue_id						number(5) NOT NULL,
+  date_created				date,
+  date_last_modified	date,
+
+  CONSTRAINT pk_gnosis_solution PRIMARY KEY (issue_id, solution_id, solution_seq)
+);
+
+Create Index idx_gnosis_solution_desc On Gnosis_Issue_Solutions(solution_desc);

@@ -1,0 +1,12 @@
+Create Table Gnosis_subsystems
+(
+  subsystem_id       number(5) NOT NULL,
+  system_id          number(5) NOT NULL,
+  subsystem_desc     varchar2(64) NOT NULL,
+  date_created       date,
+  date_last_modified date,
+
+  CONSTRAINT pk_gnosis_subsystems PRIMARY KEY (system_id, subsystem_id)
+);
+
+Create Index idx_gnosis_subsystem_desc On Gnosis_subsystems(subsystem_desc);
